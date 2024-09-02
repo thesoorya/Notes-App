@@ -1,17 +1,17 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { protectRoute } = require("../middleware/protectroute");
+const { protectRoute } = require('../middleware/protectroute');
 
 const {
-  createNote,
-  getNotes,
-  updateNote,
-  deleteNote,
-} = require("../controllers/noteController");
+    createNote,
+    editNote,
+    deleteNote,
+    getNotes
+} = require('../controllers/noteController');
 
-router.post("/", protectRoute, createNote);
-router.get("/", protectRoute, getNotes);
-router.put("/:id", protectRoute, updateNote);
-router.delete("/:id", protectRoute, deleteNote);
+router.post('/', protectRoute, createNote);
+router.get('/', protectRoute, getNotes);
+router.put('/', protectRoute, editNote);
+router.delete('/', protectRoute, deleteNote);
 
 module.exports = router;
